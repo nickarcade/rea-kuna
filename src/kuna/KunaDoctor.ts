@@ -21,12 +21,12 @@ export const inspectKunaProvider = async (
       name: "kuna_executable",
       ok: identity.available,
       code: identity.available ? null : "missing_dependency",
-      classification: identity.available ? "healthy" : "missing_analysis_engine",
+      classification: configured ? "config_drift" : "missing_analysis_engine",
       detail: identity.available
         ? `Found ${selection.command} (version: ${identity.version ?? "unknown"}) via ${selection.commandSource}`
         : `Kuna CLI was not found at ${selection.command}: ${identity.error ?? "binary missing"}`,
       remediation: identity.available
-        ? undefined
+        ? null
         : `Install kuna on PATH (e.g. ~/.local/bin/kuna) or set ${KUNA_COMMAND_ENV} to the executable path.`,
     },
   ];

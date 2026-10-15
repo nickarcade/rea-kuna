@@ -27,8 +27,8 @@ export const resolveKunaCommand = (
 export interface KunaIdentity {
   readonly version: string | null;
   readonly available: boolean;
-  readonly rawOutput?: string;
-  readonly error?: string;
+  readonly rawOutput?: string | undefined;
+  readonly error?: string | undefined;
 }
 
 /** Inspect the kuna binary and extract its version. */
@@ -57,10 +57,12 @@ export const inspectKunaClient = async (
     };
   } catch (cause) {
     const failure = execFileOutputFailure(cause);
+    const message =
+      cause instanceof Error ? cause.message : failure?.stderr ?? String(cause);
     return {
       version: null,
       available: false,
-      error: failure?.message ?? String(cause),
+      error: message,
     };
   }
 };
