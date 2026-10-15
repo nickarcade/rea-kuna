@@ -154,6 +154,12 @@ export const CLI_COMMANDS = Object.freeze({
   projectAndroidApplicationGraph: "project-android-application-graph",
   projectAppleApplicationGraph: "project-apple-application-graph",
   projectHarmonyApplicationGraph: "project-harmony-application-graph",
+  kunaFunctions: "kuna-functions",
+  kunaDecompile: "kuna-decompile",
+  kunaDisassemble: "kuna-disassemble",
+  kunaCrypto: "kuna-crypto",
+  kunaXrefs: "kuna-xrefs",
+  kunaStrings: "kuna-strings",
 });
 
 /** Ordered primary CLI inventory; aliases are intentionally excluded. */
